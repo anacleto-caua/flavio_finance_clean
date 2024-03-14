@@ -82,9 +82,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  buttonText: {
-    fontSize: 18,
-    color: "#fff",
-    fontWeight: "bold",
-  }
+  
 });
