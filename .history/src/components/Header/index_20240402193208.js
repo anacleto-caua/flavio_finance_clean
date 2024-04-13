@@ -41,12 +41,7 @@ export default function Header({ name }) {
             translateX: -300,
           }}
           animate={{
-            translateX: 0,
-          }}
-          transition={{
-            type: "timing",
-            duration: 1500,
-            delay: 300,
+            trans
           }}
         >
           {name}

@@ -13,19 +13,6 @@ export default function Balance({ saldo, gastos }) {
   return (
     <MotiView 
       style={styles.container}
-      from={{
-        rotateX: "-100deg",
-        opacity: 0,
-      }}
-      animate={{
-        rotateX: "0deg",
-        opacity: 1,
-      }}
-      transition={{
-        type: "timing",
-        duration: 800,
-        delay: 300,
-      }}
     >
       <View style={styles.item}>
         <Text style={styles.itemTitle}>Saldo</Text>

@@ -26,31 +26,10 @@ export default function Header({ name }) {
           opacity: 0,
         }}
         animate={{
-          translateY: 0,
-          opacity: 1,
-        }}
-        transition={{
-          type: "timing",
-          duration: 1500,
-          delay: 300,
+          
         }}
       >
-        <MotiText
-          style={styles.username}
-          from={{
-            translateX: -300,
-          }}
-          animate={{
-            translateX: 0,
-          }}
-          transition={{
-            type: "timing",
-            duration: 1500,
-            delay: 300,
-          }}
-        >
-          {name}
-        </MotiText>
+        <Text style={styles.username}>{name}</Text>
 
         <TouchableOpacity activeOpacity={0.9} style={styles.buttonUser}>
           <Feather name="user" size={27} color={colors.white} />

@@ -19,12 +19,6 @@ export default function Balance({ saldo, gastos }) {
       }}
       animate={{
         rotateX: "0deg",
-        opacity: 1,
-      }}
-      transition={{
-        type: "timing",
-        duration: 800,
-        delay: 300,
       }}
     >
       <View style={styles.item}>

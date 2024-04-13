@@ -45,7 +45,7 @@ export default function Header({ name }) {
           }}
           transition={{
             type: "timing",
-            duration: 1500,
+            duration: 800,
             delay: 300,
           }}
         >

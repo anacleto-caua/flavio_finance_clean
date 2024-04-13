@@ -14,7 +14,7 @@ export default function Balance({ saldo, gastos }) {
     <MotiView 
       style={styles.container}
       from={{
-        rotateX: "-100deg",
+        rotateX: "-200deg",
         opacity: 0,
       }}
       animate={{

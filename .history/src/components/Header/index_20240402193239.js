@@ -43,11 +43,6 @@ export default function Header({ name }) {
           animate={{
             translateX: 0,
           }}
-          transition={{
-            type: "timing",
-            duration: 1500,
-            delay: 300,
-          }}
         >
           {name}
         </MotiText>

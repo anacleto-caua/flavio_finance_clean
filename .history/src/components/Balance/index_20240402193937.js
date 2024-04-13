@@ -22,7 +22,7 @@ export default function Balance({ saldo, gastos }) {
         opacity: 1,
       }}
       transition={{
-        type: "timing",
+        type="timing",
         duration: 800,
         delay: 300,
       }}

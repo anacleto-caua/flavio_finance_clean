@@ -37,17 +37,6 @@ export default function Header({ name }) {
       >
         <MotiText
           style={styles.username}
-          from={{
-            translateX: -300,
-          }}
-          animate={{
-            translateX: 0,
-          }}
-          transition={{
-            type: "timing",
-            duration: 1500,
-            delay: 300,
-          }}
         >
           {name}
         </MotiText>

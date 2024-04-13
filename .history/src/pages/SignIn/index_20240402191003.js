@@ -25,7 +25,7 @@ export default function SignIn() {
       </Animatable.View>
 
       <Animatable.View
-        animation="fadeInUp" 
+         
         style={styles.containerForm}
       >
         <Text style={styles.title}>E-mail</Text>

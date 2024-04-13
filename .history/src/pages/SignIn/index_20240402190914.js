@@ -17,17 +17,13 @@ export default function SignIn() {
   return (
     <View style={styles.container}>
       <Animatable.View
-        animation="fadeInLeft"
-        delay={500} 
+        animation="fadeInLeft" 
         style={styles.containerHeader}
       >
         <Text style={styles.message}>Bem-vindo(a)</Text>
       </Animatable.View>
 
-      <Animatable.View
-        animation="fadeInUp" 
-        style={styles.containerForm}
-      >
+      <View style={styles.containerForm}>
         <Text style={styles.title}>E-mail</Text>
         <TextInput 
           placeholder="Informe e-mail de acesso..."
@@ -53,7 +49,7 @@ export default function SignIn() {
             Não possui uma conta? Registre-se...
           </Text>
         </TouchableOpacity>
-      </Animatable.View>
+      </View>
     </View>
   );
 }

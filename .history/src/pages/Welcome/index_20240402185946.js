@@ -17,19 +17,14 @@ export default function Welcome() {
   return (
     <View style={styles.container}>
       <View style={styles.containerLogo}>
-        <Animatable.Image
-          animation="flipInY"
+        <Image
           source={require("../../assets/logo.png")}
           style={{ width: "100%" }}
           resizeMode="contain"
         />
       </View>
 
-      <Animatable.View 
-        delay={600}
-        animation="fadeInUp"
-        style={styles.containerForm}
-      >
+      <View style={styles.containerForm}>
         <Text style={styles.title}>
           Monitore e organize seus gastos de qualquer lugar!
         </Text>
@@ -41,7 +36,7 @@ export default function Welcome() {
         >
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
-      </Animatable.View>
+      </View>
     </View>
   );
 }

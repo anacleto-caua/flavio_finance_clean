@@ -27,7 +27,7 @@ export default function Welcome() {
 
       <Animatable.View 
         delay={600}
-        animation="fadeInUp"
+        animation={fadeInUp}
         style={styles.containerForm}
       >
         <Text style={styles.title}>
