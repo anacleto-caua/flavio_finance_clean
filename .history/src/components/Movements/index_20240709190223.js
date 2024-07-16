@@ -3,7 +3,7 @@ import {
   View,
   Text,
   StyleSheet, 
-  TouchableOpacity 
+  TouchaPrebleOpacity 
 } from 'react-native';
 
 import Feather from '@expo/vector-icons/Feather'
@@ -59,6 +59,8 @@ export default function Movements({ item }) {
             </MotiView>
           </AnimatePresence>
         )}
+
+        <Text style={item.type === 1 ? styles.value : styles.expenses}>{item.type === 1 ? `R$ ${item.value}` : `R$ -${item.value}`}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -99,14 +101,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.red,
     fontWeight: 'bold',
-  },
-
-  skeleton: {
-    minHeight: 16,
-    marginTop: 6,
-    width: 80,
-    height: 10,
-    backgroundColor: colors.gray_200,
-    borderRadius: 8,
   }
 })

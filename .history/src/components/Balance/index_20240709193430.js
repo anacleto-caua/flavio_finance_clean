@@ -62,8 +62,8 @@ styles = StyleSheet.create({
     borderColor: colors.opacity_black,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingStart: 4,
-    paddingEnd: 4,
+    paddingStart: 12,
+    paddingEnd: 12,
     marginTop: -24,
     marginStart: 14,
     marginEnd: 14,
@@ -86,32 +86,29 @@ styles = StyleSheet.create({
   },
 
   itemTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
     color: colors.gray_400,
-    marginBottom: 6,
   },
 
   currencySymbol: {
-    fontSize: 14,
     color: colors.gray_400,
     marginRight: 6,
   },
 
   income: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 'bold',
     color: colors.blue,
   },
   
   balance: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 'bold',
     color: colors.green,
   },
   
   expenses: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 'bold',
     color: colors.red,
   },

@@ -3,7 +3,7 @@ import {
   View,
   Text,
   StyleSheet, 
-  TouchableOpacity 
+  TouchaPrebleOpacity 
 } from 'react-native';
 
 import Feather from '@expo/vector-icons/Feather'
@@ -104,9 +104,6 @@ const styles = StyleSheet.create({
   skeleton: {
     minHeight: 16,
     marginTop: 6,
-    width: 80,
-    height: 10,
-    backgroundColor: colors.gray_200,
-    borderRadius: 8,
+    width: 
   }
 })

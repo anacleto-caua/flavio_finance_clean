@@ -9,7 +9,7 @@ import colors from '../../theme/colors'
 
 import { MotiView } from 'moti';
 
-export default function Balance({ entradas, saldo, gastos }) {
+export default function Balance({ saldo, gastos }) {
   return (
     <MotiView 
       style={styles.container}
@@ -28,18 +28,10 @@ export default function Balance({ entradas, saldo, gastos }) {
       }}
     >
       <View style={styles.item}>
-        <Text style={styles.itemTitle}>Entradas</Text>
-        <View style={styles.content}>
-          <Text style={styles.currencySymbol}>R$</Text>
-          <Text style={styles.income}>{entradas}</Text>
-        </View>
-      </View>
-
-      <View style={styles.item}>
         <Text style={styles.itemTitle}>Saldo</Text>
         <View style={styles.content}>
           <Text style={styles.currencySymbol}>R$</Text>
-          <Text style={styles.balance}>{saldo}</Text>
+          <Text style={styles.balance}>{new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2 }).format()}</Text>
         </View>
       </View>
 
@@ -62,8 +54,8 @@ styles = StyleSheet.create({
     borderColor: colors.opacity_black,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingStart: 4,
-    paddingEnd: 4,
+    paddingStart: 18,
+    paddingEnd: 18,
     marginTop: -24,
     marginStart: 14,
     marginEnd: 14,
@@ -79,40 +71,28 @@ styles = StyleSheet.create({
 
   item: {
     borderWidth: 1,
-    padding: 8,
+    padding: 12,
     borderRadius: 8,
     borderColor: colors.opacity_black,
-    alignItems: 'center',
   },
 
   itemTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
     color: colors.gray_400,
-    marginBottom: 6,
   },
 
   currencySymbol: {
-    fontSize: 14,
     color: colors.gray_400,
     marginRight: 6,
   },
 
-  income: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: colors.blue,
-  },
-  
   balance: {
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 22,
     color: colors.green,
   },
-  
+
   expenses: {
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 22,
     color: colors.red,
   },
 })

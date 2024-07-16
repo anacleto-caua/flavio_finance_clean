@@ -43,7 +43,7 @@ export default function Home() {
       <View style={styles.header}>
         <Header name="Flávio Freitas" />
 
-        <Balance entradas="15.500,00" saldo="8.000,00" gastos="7.500,00" />
+        <Balance saldo="15.500,00" gastos="7.500,00" />
 
         {/* <Actions /> */}
       </View>

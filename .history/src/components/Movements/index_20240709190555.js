@@ -3,7 +3,7 @@ import {
   View,
   Text,
   StyleSheet, 
-  TouchableOpacity 
+  TouchaPrebleOpacity 
 } from 'react-native';
 
 import Feather from '@expo/vector-icons/Feather'
