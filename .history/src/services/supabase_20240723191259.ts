@@ -1,9 +1,9 @@
-// import 'react-native-url-polyfill/auto'
+import 'react-native-url-polyfill/auto'
 import { createClient } from "@supabase/supabase-js";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SecureStore from 'expo-secure-store'
 import * as aesjs from 'aes-js'
-// import 'react-native-get-random-values'
+import 'react-native-get-random-values'
 
 class LargeSecureStore {
   private async _encrypt(key: string, value: string) {
@@ -41,11 +41,6 @@ class LargeSecureStore {
     return await this._decrypt(key, encrypted)
   }
 
-  async removeItem(key: string) {
-    await AsyncStorage.removeItem(key)
-    await SecureStore.deleteItemAsync(key)
-  }
-
   async setItem(key: string, value: string) {
     const encrypted = await this._encrypt(key, value)
 
@@ -53,14 +48,14 @@ class LargeSecureStore {
   }
 }
 
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.;
+const supabaseAnonKey = ;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
-    storage: new LargeSecureStore(),
+    storage: AsyncStorage,
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: false,
-  },
-});
+  }
+})

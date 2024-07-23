@@ -3,6 +3,8 @@ import {
   View,
   StyleSheet,
   Text,
+  StatusBar,
+  FlatList,
   ScrollView, 
 } from 'react-native';
 
@@ -123,7 +125,7 @@ export default function Home({session}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header name={session.user.email} />
+        <Header name="Flávio Freitas" />
 
         <Balance entradas={sumOfCredits} saldo={sumOfCredits - sumOfDebits} gastos={sumOfDebits} />
 
@@ -183,6 +185,6 @@ const styles = StyleSheet.create({
   list: {
     marginStart: 14,
     marginEnd: 14,
-    // backgroundColor: colors.gray_200,
+    back
   },
 })
