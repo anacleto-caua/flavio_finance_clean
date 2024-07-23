@@ -173,9 +173,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: colors.dark_purple,
     margin: 14,
-    marginTop: 16, // TODO: continuar daqui - CRIAR .ENV
   },
 
   list: {

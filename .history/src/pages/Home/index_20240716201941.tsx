@@ -157,25 +157,22 @@ export default function Home({session}) {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: colors.opacity_white,
   },
 
   header: {
-    marginTop: 0,
+
   },
 
   scrollArea: {
     marginTop: 80,
-    color: colors.gray_400,
   },
 
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: colors.dark_purple,
     margin: 14,
-    marginTop: 16, // TODO: continuar daqui - CRIAR .ENV
   },
 
   list: {

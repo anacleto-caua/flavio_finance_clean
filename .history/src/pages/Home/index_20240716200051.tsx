@@ -10,8 +10,6 @@ import {
 
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
-import { FlashList } from '@shopify/flash-list';
-
 import Header from '../../components/Header';
 import Balance from '../../components/Balance';
 import Movements from '../../components/Movements';
@@ -90,44 +88,16 @@ export default function Home({session}) {
 
   useEffect(() => {
     const updateData = async () => {
-      const { data, error } = await fetchAccountData();
-      if (error) {
-        console.error('Error fetching data:', error);
-        console.log('Error fetching data:', error);
-        setAccounts([]);
-      } else {
-        setAccounts(data);
-      }
-    };
-    setLoading(true);
-    updateData();
-    setLoading(false);
-    console.log('updateData ~ accounts:', accounts);
-  }, []);
-
-  const updateSums = () => {
-    setSumOfDebits(calculateSums(accounts, 0));
-    console.log('updateSums ~ sumOfDebits:', sumOfDebits);
-    setSumOfCredits(calculateSums(accounts, 1));
-    console.log('updateSums ~ sumOfCredits:', sumOfCredits);
-  };
-
-  useFocusEffect(
-    useCallback(() => {
-      {!loading && updateSums()};
-    }, [accounts])
-  );
-
-  if (!session) {
-    return;
-  }
+      const { data, error } = await fetchAccountData
+    }
+  })
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Header name="Flávio Freitas" />
 
-        <Balance entradas={sumOfCredits} saldo={sumOfCredits - sumOfDebits} gastos={sumOfDebits} />
+        <Balance entradas="15.500,00" saldo="8.000,00" gastos="7.500,00" />
 
         <Actions />
       </View>
@@ -137,19 +107,13 @@ export default function Home({session}) {
         showsVerticalScrollIndicator={false}
       >
         <Text style={styles.title}>Últimas movimentações</Text>
-        <View style={styles.list}>
-          {!loading && (
-            <FlashList
-              data={accounts}
-              extraData={!loading && accounts}
-              keyExtractor={ (item) => String(item.id) }
-              showsVerticalScrollIndicator={false}
-              renderItem={ ({ item }) => <Movements item={ item } />}
-              ListEmptyComponent={EmptyListMessage}
-              estimatedItemSize={200}
-            />
-          )}
-        </View>
+        <FlatList
+          style={styles.list}
+          data={list}
+          keyExtractor={ (item) => String(item.id) }
+          showsVerticalScrollIndicator={false}
+          renderItem={ ({ item }) => <Movements item={ item } />}
+        />
       </ScrollView>
     </View>
   );
@@ -157,25 +121,22 @@ export default function Home({session}) {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: colors.opacity_white,
   },
 
   header: {
-    marginTop: 0,
+
   },
 
   scrollArea: {
     marginTop: 80,
-    color: colors.gray_400,
   },
 
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: colors.dark_purple,
     margin: 14,
-    marginTop: 16, // TODO: continuar daqui - CRIAR .ENV
   },
 
   list: {

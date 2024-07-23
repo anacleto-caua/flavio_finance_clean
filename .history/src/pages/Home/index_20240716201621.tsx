@@ -137,19 +137,13 @@ export default function Home({session}) {
         showsVerticalScrollIndicator={false}
       >
         <Text style={styles.title}>Últimas movimentações</Text>
-        <View style={styles.list}>
-          {!loading && (
-            <FlashList
-              data={accounts}
-              extraData={!loading && accounts}
-              keyExtractor={ (item) => String(item.id) }
-              showsVerticalScrollIndicator={false}
-              renderItem={ ({ item }) => <Movements item={ item } />}
-              ListEmptyComponent={EmptyListMessage}
-              estimatedItemSize={200}
-            />
-          )}
-        </View>
+        <FlashList
+          style={styles.list}
+          data={list}
+          keyExtractor={ (item) => String(item.id) }
+          showsVerticalScrollIndicator={false}
+          renderItem={ ({ item }) => <Movements item={ item } />}
+        />
       </ScrollView>
     </View>
   );
@@ -157,25 +151,22 @@ export default function Home({session}) {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: colors.opacity_white,
   },
 
   header: {
-    marginTop: 0,
+
   },
 
   scrollArea: {
     marginTop: 80,
-    color: colors.gray_400,
   },
 
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: colors.dark_purple,
     margin: 14,
-    marginTop: 16, // TODO: continuar daqui - CRIAR .ENV
   },
 
   list: {
