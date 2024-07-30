@@ -15,7 +15,7 @@ import Home from "./src/pages/Home";
 import Routes from "./src/routes";
 
 export default function App() {
-  const [session, setSession] = useState(null);
+  const [session, setSession] = useState < Session | null >(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
