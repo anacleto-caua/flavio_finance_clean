@@ -31,7 +31,7 @@ export default function Balance({ entradas, saldo, gastos }) {
         <Text style={styles.itemTitle}>Entradas</Text>
         <View style={styles.content}>
           <Text style={styles.currencySymbol}>R$</Text>
-          <Text style={styles.income}>{new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2}).format(entradas)}</Text>
+          <Text style={styles.income}>{new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2}).(entradas)}</Text>
         </View>
       </View>
 
@@ -39,7 +39,7 @@ export default function Balance({ entradas, saldo, gastos }) {
         <Text style={styles.itemTitle}>Saldo</Text>
         <View style={styles.content}>
           <Text style={styles.currencySymbol}>R$</Text>
-          <Text style={styles.balance}>{new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2}).format(saldo)}</Text>
+          <Text style={styles.balance}>{saldo}</Text>
         </View>
       </View>
 
@@ -47,7 +47,7 @@ export default function Balance({ entradas, saldo, gastos }) {
         <Text style={styles.itemTitle}>Gastos</Text>
         <View style={styles.content}>
           <Text style={styles.currencySymbol}>R$</Text>
-          <Text style={styles.expenses}>{new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2}).format(gastos)}</Text>
+          <Text style={styles.expenses}>{gastos}</Text>
         </View>
       </View>     
     </MotiView>
