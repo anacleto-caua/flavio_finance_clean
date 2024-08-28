@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { StyleSheet, View } from 'react-native'
 
@@ -6,7 +6,7 @@ import { Button, Input } from 'react-native-elements'
 
 import { useNavigation } from '@react-navigation/native'
 
-import { supabase } from '../../services/supabase'
+import { supabase } from '../../services/supabase.ts'
 
 export default function Auth() {
   const navigation = useNavigation()
@@ -17,15 +17,17 @@ export default function Auth() {
 
   async function signInWithEmail() {
     setLoading(true)
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     })
-
     if (error) {
       alert(error.message)
+    }else{
+      navigation.navigate('Home');
     }
     setLoading(false)
+    
   }
 
   async function signUpWithEmail() {

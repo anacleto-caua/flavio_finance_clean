@@ -1,8 +1,10 @@
 // import 'react-native-url-polyfill/auto'
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { View, Text } from "react-native";
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { Session } from "@supabase/supabase-js";
 
@@ -12,7 +14,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import { ScreenStack } from "react-native-screens";
 import Welcome from "./src/pages/Welcome";
 import Home from "./src/pages/Home";
+import SignIn from './src/pages/SignIn';
 import Routes from "./src/routes";
+import AddRecord from './src/pages/AddRecord'
+
+
+import AuthProvider from "./src/routes/AuthContext";
+
+import { AuthContext } from "./src/routes/AuthContext";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -27,11 +38,20 @@ export default function App() {
     });
   }, []);
 
+  
   return (
-    <View>
+    <AuthProvider>
+
       <NavigationContainer>
-        {session && session.user ? <Home session={session} /> : <Auth />}
+
+        <Routes />
+        
+        {/* {session && session.user ? <Home session={session} /> : <Auth />}
+        <Routes 
+          options={{ headerShown: false }}
+        /> */}
+
       </NavigationContainer>
-    </View>
+    </AuthProvider>
   );
 }

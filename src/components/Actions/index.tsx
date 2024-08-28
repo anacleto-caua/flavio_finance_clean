@@ -7,11 +7,27 @@ import {
   View,
 } from "react-native";
 
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+import { useNavigation } from "@react-navigation/native";
+
 import { AntDesign } from "@expo/vector-icons";
 
 import colors from "../../theme/colors";
 
+
+// type RootStackParamList = {
+//   AddRecord: undefined;
+// };
+
+// type HomeProps = NativeStackNavigationProp<RootStackParamList, 'AddRecord'>;
+
 export default function Actions() {
+  // const navigation = useNavigation<HomeProps>();
+  const navigation = useNavigation();
+
+
+
   return (
     <ScrollView
       style={styles.container}
@@ -44,6 +60,13 @@ export default function Actions() {
           <AntDesign name="barcode" size={26} color={colors.blue} />
         </View>
         <Text style={styles.labelButton}>Boletos</Text>
+      </Pressable>
+
+      <Pressable onPress={() => navigation.navigate('AddRecord')} style={styles.actionButton}>
+        <View style={styles.areaButton}>
+          <AntDesign name="plus" size={26} color={colors.blue} />
+        </View>
+        <Text style={styles.labelButton}>Add Registro</Text>
       </Pressable>
 
       <Pressable style={styles.actionButton}>

@@ -16,31 +16,9 @@ import Movements from '../../components/Movements';
 import Actions from '../../components/Actions';
 
 import colors from '../../theme/colors'
-import { supabase } from '../../services/supabase';
+import { supabase } from '../../services/supabase.ts';
 
-// const list = [
-//   {
-//     id: 1,
-//     label: 'Boleto conta luz',
-//     value: 235.89,
-//     date: '17/01/2024',
-//     type: 0, // despesas
-//   },
-//   {
-//     id: 2,
-//     label: 'Boleto conta água',
-//     value: 137.55,
-//     date: '20/01/2024',
-//     type: 0, // despesas
-//   },
-//   {
-//     id: 3,
-//     label: 'Pix Cliente X',
-//     value: 2500.00,
-//     date: '22/01/2024',
-//     type: 1, // receita / entrada
-//   },
-// ]
+import { useRoute } from '@react-navigation/native';
 
 interface Account {
   id: number;
@@ -50,7 +28,26 @@ interface Account {
   type: number;
 }
 
-export default function Home({session}) {
+interface HomeProps {
+  session: any; // Replace 'any' with the actual type if known
+}
+
+export default function Home() {
+
+  const [session, setSession] = useState(null);
+
+    useEffect(() => {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        setSession(session);
+      });
+
+      supabase.auth.onAuthStateChange((_event, session) => {
+        setSession(session);
+      });
+    }, []);
+
+  // const navigation = useNavigation();
+
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [sumOfDebits, setSumOfDebits] = useState(0);
   const [sumOfCredits, setSumOfCredits] = useState(0);
@@ -61,7 +58,7 @@ export default function Home({session}) {
       const { data, error } = await supabase
         .from('account_records')
         .select();
-
+        console.log("fetchAccountData ~ data:", data);
       return { data, error };
     } catch (error) {
       console.error("Unexpected error:", error);
@@ -120,6 +117,7 @@ export default function Home({session}) {
     return;
   }
 
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -156,6 +154,7 @@ export default function Home({session}) {
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
+    width: '100%',
     backgroundColor: colors.opacity_white,
   },
 
@@ -173,7 +172,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.dark_purple,
     margin: 14,
-    marginTop: 16, // TODO: continuar daqui - CRIAR .ENV
+    marginTop: 16,
     marginBottom: 16,
     paddingBottom: 8,
     borderBottomWidth: 4,

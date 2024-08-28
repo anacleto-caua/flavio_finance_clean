@@ -32,7 +32,7 @@ export default function Movements({ item }) {
         {showValue ? (
           <AnimatePresence exitBeforeEnter>
             <MotiText
-              style={item.type === 1 ? styles.value : styles.expenses}
+              style={item.type == 1 ? styles.value : styles.expenses}
               from={{
                 translateX: 100,
               }}
@@ -44,7 +44,7 @@ export default function Movements({ item }) {
                 duration: 800,
               }}
             >
-              {item.type === 1 ? `R$ ${new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2 }).format(item.value)}` : `R$ -${new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2}).format(item.value)}`}
+              {item.type == 1 ? `R$ ${new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2 }).format(item.value)}` : `R$ -${new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2}).format(item.value)}`}
             </MotiText>
           </AnimatePresence>
         ) : (
