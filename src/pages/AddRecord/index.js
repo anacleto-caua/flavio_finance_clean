@@ -30,24 +30,24 @@ export default function Auth() {
       <View style={styles.valuesContainer}>
 
         <Input
-          label="Título"
+          label="Descrição"
           onChangeText={(title) => setTitle(title)}
           value={title}
-          placeholder='Ex.: Conta de luz.'
+          placeholder='Restaurante...'
         />
 
         <Input
           label="Valor"
           onChangeText={(value) => setValue(value)}
           value={value}
-          placeholder='Valor em reais.'
+          placeholder='100.00'
         />
 
         <Input
           label="Data"
           onChangeText={(date) => setDate(date)}
           value={date}
-          placeholder='Ex.: 11/09/2024'
+          placeholder='dd/mm/aaaa'
         />
 
         <View style={styles.checkBoxContainer}>
@@ -97,7 +97,7 @@ export default function Auth() {
           </View>
 
           <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Home")}>
+            <TouchableOpacity style={[styles.button, styles.buttonText]} onPress={() => navigation.navigate("Home")}>
               <Text style={styles.buttonText}>Cancelar</Text>
             </TouchableOpacity>
           </View>
@@ -114,8 +114,9 @@ export default function Auth() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 40,
-    padding: 12,
+    marginTop: 35,
+    padding: 2,
+    width: "50%",
   },
 
   valuesContainer: {
@@ -125,10 +126,6 @@ const styles = StyleSheet.create({
 
   checkBoxContainer: {
     marginTop: 20,
-  },
-
-  buttonsContainer: {
-    marginTop: 10,
   },
 
   buttonsContainer: {
@@ -160,6 +157,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   button: {
     backgroundColor: '#1E90FF',
     padding: 10,
@@ -176,7 +174,8 @@ const styles = StyleSheet.create({
   },
   
   buttonText: {
-    color: '#e74c3c',
+    color: '#fff',
+    backgroundColor: '#e74c3c',
     fontSize: 18,
   },
 })
